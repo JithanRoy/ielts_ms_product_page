@@ -47,7 +47,7 @@ const PageNavigation: React.FC<PageNavigationProps> = ({ sections, activeSection
   };
 
   return (
-    <div className="hidden md:block sticky top-[65px] z-20">
+    <div className="hidden md:block bg-white sticky top-16 z-30">
       <div className="container mx-auto px-4 relative">
         {/* Left Arrow Button */}
         <button

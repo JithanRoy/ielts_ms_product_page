@@ -35,17 +35,23 @@ export default function CourseContent({ sections }: CourseContentProps) {
   };
 
   return (
-    <div className='pt-32'>
-      <PageNavigation
-        sections={sections}
-        activeSection={activeSection}
-        onNavLinkClick={handleNavLinkClick}
-      />
-      <div className="container mx-auto px-8 space-y-8 md:mt-4 font-sans">
-        {sections.map((section) => (
-          <SectionRenderer key={section.type} section={section} />
-        ))}
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      {/* Left Column (Navigation and Sections) */}
+      <div className="lg:col-span-2">
+        <PageNavigation
+          sections={sections}
+          activeSection={activeSection}
+          onNavLinkClick={handleNavLinkClick}
+        />
+        <div className="space-y-8 mt-4">
+          {sections.map((section) => (
+            <SectionRenderer key={section.type} section={section} />
+          ))}
+        </div>
       </div>
+
+      {/* Right Column (Spacer) - This ensures the left column doesn't expand to full width */}
+      <div className="hidden lg:block lg:col-span-1" />
     </div>
   );
 }
