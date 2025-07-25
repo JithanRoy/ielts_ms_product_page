@@ -58,7 +58,7 @@ export interface AboutValue {
 export interface Section {
   type: string;
   name: string;
-  values: (Instructor | Feature | Pointer | AboutValue)[];
+  values: (Instructor | Feature | Pointer | AboutValue | FeatureExplanation)[];
 }
 
 // The top-level interface for the entire API response data
@@ -71,4 +71,11 @@ export interface CourseData {
   checklist: ChecklistItem[];
   cta_text: CtaText;
   sections: Section[];
+}
+
+export interface FeatureExplanation {
+  id: string;
+  title: string;
+  checklist: string[]; // It's an array of strings
+  file_url: string;
 }

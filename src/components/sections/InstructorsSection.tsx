@@ -1,52 +1,51 @@
-
+// src/components/sections/InstructorsSection.tsx
 import React from 'react';
 import Image from 'next/image';
-import {Instructor, Section} from "../../types/course";
+import { Section, Instructor } from '@/types/course';
 
 interface InstructorsProps {
   data: Section;
+  id: string; // The component now accepts an ID
 }
 
-const InstructorsSection: React.FC<InstructorsProps> = ({ data }) => {
+const InstructorsSection: React.FC<InstructorsProps> = ({ data, id }) => {
+  const instructors = data.values as Instructor[];
 
-  const instructors: Instructor[] = data.values;
-
-  if (!instructors || instructors.length === 0) {
-    return null;
-  }
+  if (!instructors || instructors.length === 0) return null;
 
   return (
-    <section className="bg-bg-light py-12">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-3xl font-bold text-center mb-8">{data.name}</h2>
+    <section id={id} className="pt-8">
+      <div className="mb-7 xs:bg-[#EEF2F4] xs:pt-2">
+        <h2 className="mb-4 text-text-primary text-xl font-semibold md:text-2xl">{data.name}</h2>
 
-        <div className="space-y-6">
+        <div className="flex items-center md:rounded-md md:border md:p-5 border-solid border-gray-300 box-border">
           {instructors.map((instructor) => (
             <div
-              key={instructor?.slug}
-              className="bg-white p-6 rounded-lg shadow-md border flex flex-col sm:flex-row items-center gap-6"
+              key={instructor.slug}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6"
             >
-              <div className="flex-shrink-0">
+              <div className="flex">
                 <Image
                   src={instructor.image}
                   alt={instructor.name}
-                  width={100}
-                  height={100}
+                  width={100} height={100}
                   className="rounded-full object-cover"
                 />
               </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-brand-secondary mb-1">{instructor.name}</h3>
+              <div className='flex-1 ml-4 pt-6'>
+                <h3 className="text-lg font-normal text-text-primary hover:text-brand-primary flex items-center gap-2 font-sans cursor-pointer">
+                  {instructor.name}
+                  <span className="text-brand-primary text-sm">{'>'}</span>
+                </h3>
                 <div
-                  className="text-text-light prose prose-sm"
+                  className="text-text-primary font-sans text-md prose prose-sm max-w-none"
                   dangerouslySetInnerHTML={{ __html: instructor.description }}
                 />
               </div>
             </div>
           ))}
         </div>
-      </div>
+        </div>
     </section>
   );
 };

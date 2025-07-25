@@ -1,30 +1,30 @@
 // src/components/SectionRenderer.tsx
 import React from 'react';
-import { Section } from '@/types/course';
-
-// 1. Import all the components that can be rendered as a section
 import InstructorsSection from './sections/InstructorsSection';
-// Note: You will create these section components in the next steps
-
-// Define the props for this component
+import {Section} from "../types/course";
+import FeaturesSection from "./sections/FeaturesSection";
+import PointersSection from "./sections/PointersSection";
+import FeatureExplanationsSection from "./sections/FeaturesExplanationSection";
+import AboutSection from "./sections/AboutSection";
 interface SectionRendererProps {
   section: Section;
 }
 
 const SectionRenderer: React.FC<SectionRendererProps> = ({ section }) => {
-  // 2. Use a switch statement to decide which component to render
+  // Each section component will now receive an `id` prop
+  const props = { data: section, id: section.type };
+
   switch (section.type) {
     case 'instructors':
-      return <InstructorsSection data={section} />;
-
-    // case 'features':
-    //   return <FeaturesSection data={section} />;
-    //
-    // case 'pointers':
-    //   return <PointersSection data={section} />;
-    //
-    // case 'about':
-    //   return <AboutSection data={section} />;
+      return <InstructorsSection {...props} />;
+    case 'features':
+      return <FeaturesSection {...props} />;
+    case 'pointers':
+      return <PointersSection {...props} />;
+    case 'feature_explanations':
+      return <FeatureExplanationsSection {...props} />;
+    case 'about':
+      return <AboutSection {...props} />;
 
     default:
       return null;

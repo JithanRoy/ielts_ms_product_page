@@ -76,9 +76,9 @@ const PurchaseCard: React.FC<PurchaseCardProps> = ({ media, checklist, ctaText }
       <div className="p-4 border-t">
         <div className="mb-4">
           <div className="flex items-center gap-3">
-            <span className="text-2xl font-bold text-text-main">৳3850</span>
+            <span className="text-2xl font-bold text-text-main">৳1000</span>
             <del className="text-lg text-gray-500">৳5000</del>
-            <span className="bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded-md">1150 ৳ ছাড়</span>
+            <span className="bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded-md">4000 ৳ ছাড়</span>
           </div>
         </div>
         <CustomButton>{ctaText}</CustomButton>
