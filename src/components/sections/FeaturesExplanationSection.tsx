@@ -1,13 +1,7 @@
-// src/components/sections/FeatureExplanationsSection.tsx
 import React from 'react';
 import Image from 'next/image';
 import { Section, FeatureExplanation } from '@/types/course';
-
-const CheckIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="15" fill="none" viewBox="0 0 19 15" className="flex-shrink-0 w-5 h-5 text-brand-accent mt-1">
-    <path fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.893" d="M18.168 1.508a.792.792 0 01-.006 1.111L6.645 14.143a.77.77 0 01-1.087.005L.77 9.433a.792.792 0 01-.015-1.11.77.77 0 011.098-.016l4.242 4.177L17.07 1.502a.77.77 0 011.098.006z"></path>
-  </svg>
-);
+import {CheckIcon} from "../ui/icons/commonIcon";
 
 interface FeatureExplanationsProps {
   data: Section;
@@ -43,7 +37,7 @@ const FeatureExplanationsSection: React.FC<FeatureExplanationsProps> = ({ data, 
                   alt={item.title}
                   width={250}
                   height={200}
-                  objectFit="contain"
+                  style={{ objectFit: 'contain' }}
                 />
               </div>
             </div>

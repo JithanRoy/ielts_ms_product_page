@@ -1,11 +1,10 @@
-// src/components/sections/InstructorsSection.tsx
 import React from 'react';
 import Image from 'next/image';
 import { Section, Instructor } from '@/types/course';
 
 interface InstructorsProps {
   data: Section;
-  id: string; // The component now accepts an ID
+  id: string;
 }
 
 const InstructorsSection: React.FC<InstructorsProps> = ({ data, id }) => {

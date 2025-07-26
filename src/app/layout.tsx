@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
@@ -15,13 +14,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
-    <body className={`${inter.variable} ${notoSansBengali.variable} font-sans antialiased`}>
-    {/* The Header is now the first element, it will be on every page */}
-    <Header />
-
-    {/* The rest of your page content, including page.tsx, renders here */}
-    {children}
-    </body>
+      <body className={`${inter.variable} ${notoSansBengali.variable} font-sans antialiased`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

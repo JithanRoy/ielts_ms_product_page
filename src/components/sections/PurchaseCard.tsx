@@ -35,7 +35,7 @@ const PurchaseCard: React.FC<PurchaseCardProps> = ({ media, checklist, ctaText }
   const handlePlayClick = () => setIsPlaying(true);
 
   return (
-    <div className="bg-white rounded-lg shadow-2xl md:border overflow-hidden">
+    <div className="bg-white rounded-lg md:border overflow-hidden">
       <div className="relative aspect-w-16 aspect-h-9 bg-black rounded-t-lg overflow-hidden">
         {currentItem?.resource_type === 'video' && isPlaying ? (
           <iframe
@@ -48,7 +48,7 @@ const PurchaseCard: React.FC<PurchaseCardProps> = ({ media, checklist, ctaText }
           <>
             <Image
               src={currentItem?.thumbnail_url || currentItem?.resource_value || ''}
-              alt="Course Preview Thumbnail" layout="fill" objectFit="cover" priority
+              alt="Course Preview Thumbnail" width='300' height='300' style={{ objectFit: 'cover' }} priority
             />
             <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
             <button onClick={handlePrev} className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-white/80 hover:bg-white rounded-full shadow-md z-20 transition">
@@ -69,7 +69,7 @@ const PurchaseCard: React.FC<PurchaseCardProps> = ({ media, checklist, ctaText }
       <div ref={thumbnailContainerRef} className="flex gap-2 p-2 overflow-x-auto hide-scrollbar">
         {galleryItems.map((item, index) => (
           <button key={`${item.resource_value}-${index}`} onClick={() => handleThumbnailClick(index)} className={`relative flex-shrink-0 w-24 h-14 rounded-md overflow-hidden transition-all duration-200 ${currentIndex === index ? 'ring-2 ring-brand-primary ring-offset-1' : 'ring-1 ring-gray-200 hover:ring-gray-400'}`}>
-            <Image src={item.thumbnail_url || item.resource_value} alt="thumbnail" layout="fill" objectFit="cover" />
+            <Image src={item.thumbnail_url || item.resource_value} alt="thumbnail" width='100' height="100" style={{objectFit: 'cover'}} />
           </button>
         ))}
       </div>
@@ -88,7 +88,13 @@ const PurchaseCard: React.FC<PurchaseCardProps> = ({ media, checklist, ctaText }
         <ul className="space-y-3">
           {checklist.map((item) => (
             <li key={item.id} className="flex items-start">
-              <Image src={item.icon} alt="icon" width={20} height={20} className="mr-3 mt-0.5 flex-shrink-0" />
+              <Image
+                src={item.icon}
+                alt="icon"
+                width={20}
+                height={20}
+                className="mr-3 mt-0.5 flex-shrink-0"
+              />
               <span className="text-text-main text-sm">{item.text}</span>
             </li>
           ))}

@@ -1,4 +1,3 @@
-// src/components/SectionRenderer.tsx
 import React from 'react';
 import InstructorsSection from './sections/InstructorsSection';
 import {Section} from "../types/course";
@@ -11,7 +10,6 @@ interface SectionRendererProps {
 }
 
 const SectionRenderer: React.FC<SectionRendererProps> = ({ section }) => {
-  // Each section component will now receive an `id` prop
   const props = { data: section, id: section.type };
 
   switch (section.type) {
@@ -25,7 +23,6 @@ const SectionRenderer: React.FC<SectionRendererProps> = ({ section }) => {
       return <FeatureExplanationsSection {...props} />;
     case 'about':
       return <AboutSection {...props} />;
-
     default:
       return null;
   }

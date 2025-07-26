@@ -1,6 +1,4 @@
-// src/types/course.ts
 
-// Type for the `media` array
 export interface Media {
   name: string;
   resource_type: 'video' | 'image';
@@ -8,22 +6,17 @@ export interface Media {
   thumbnail_url?: string;
 }
 
-// Type for the `checklist` array
 export interface ChecklistItem {
   id: string;
   text: string;
   icon: string;
 }
 
-// Type for the `cta_text` object
 export interface CtaText {
   name: string;
   value: string;
 }
 
-// --- Specific types for each kind of Section ---
-
-// For sections where type = 'instructors'
 export interface Instructor {
   name: string;
   image: string;
@@ -32,7 +25,6 @@ export interface Instructor {
   short_description: string;
 }
 
-// For sections where type = 'features'
 export interface Feature {
   id: string;
   title: string;
@@ -40,7 +32,6 @@ export interface Feature {
   icon: string;
 }
 
-// For sections where type = 'pointers'
 export interface Pointer {
   id: string;
   text: string;
@@ -61,7 +52,6 @@ export interface Section {
   values: (Instructor | Feature | Pointer | AboutValue | FeatureExplanation)[];
 }
 
-// The top-level interface for the entire API response data
 export interface CourseData {
   slug: string;
   id: number;
@@ -76,6 +66,6 @@ export interface CourseData {
 export interface FeatureExplanation {
   id: string;
   title: string;
-  checklist: string[]; // It's an array of strings
+  checklist: string[];
   file_url: string;
 }

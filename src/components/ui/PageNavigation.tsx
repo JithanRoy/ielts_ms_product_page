@@ -19,7 +19,6 @@ const PageNavigation: React.FC<PageNavigationProps> = ({ sections, activeSection
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
-  // This effect checks if the carousel can be scrolled left or right, and shows/hides the arrows.
   useEffect(() => {
     const checkScrollability = () => {
       const el = scrollContainerRef.current;
@@ -28,7 +27,7 @@ const PageNavigation: React.FC<PageNavigationProps> = ({ sections, activeSection
         setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth);
       }
     };
-    checkScrollability(); // Check on mount
+    checkScrollability();
     const el = scrollContainerRef.current;
     el?.addEventListener('scroll', checkScrollability);
     window.addEventListener('resize', checkScrollability);
@@ -49,15 +48,12 @@ const PageNavigation: React.FC<PageNavigationProps> = ({ sections, activeSection
   return (
     <div className="hidden md:block bg-white sticky top-16 z-30">
       <div className="container mx-auto px-4 relative">
-        {/* Left Arrow Button */}
         <button
           onClick={() => handleNavScroll('left')}
           className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 transition-opacity ${canScrollLeft ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         >
           <ChevronIcon className="rotate-180" />
         </button>
-
-        {/* Scrollable List */}
         <ul ref={scrollContainerRef} className="flex pt-1 -pb-[0.75] border-b overflow-x-auto scroll-smooth snap-x hide-scrollbar">
           {sections.map((section:any) => (
             <li key={section.type} className="snap-start">
@@ -74,8 +70,6 @@ const PageNavigation: React.FC<PageNavigationProps> = ({ sections, activeSection
             </li>
           ))}
         </ul>
-
-        {/* Right Arrow Button */}
         <button
           onClick={() => handleNavScroll('right')}
           className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 transition-opacity ${canScrollRight ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}

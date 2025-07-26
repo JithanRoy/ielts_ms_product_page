@@ -1,4 +1,3 @@
-// src/components/CourseContent.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -36,7 +35,6 @@ export default function CourseContent({ sections }: CourseContentProps) {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-      {/* Left Column (Navigation and Sections) */}
       <div className="lg:col-span-2">
         <PageNavigation
           sections={sections}
@@ -49,8 +47,6 @@ export default function CourseContent({ sections }: CourseContentProps) {
           ))}
         </div>
       </div>
-
-      {/* Right Column (Spacer) - This ensures the left column doesn't expand to full width */}
       <div className="hidden lg:block lg:col-span-1" />
     </div>
   );
