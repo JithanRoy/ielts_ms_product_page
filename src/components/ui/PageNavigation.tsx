@@ -47,7 +47,7 @@ const PageNavigation: React.FC<PageNavigationProps> = ({ sections, activeSection
 
   return (
     <div className="hidden md:block bg-white sticky top-16 z-30">
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto relative">
         <button
           onClick={() => handleNavScroll('left')}
           className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 transition-opacity ${canScrollLeft ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}

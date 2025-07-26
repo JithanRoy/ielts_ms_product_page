@@ -13,15 +13,14 @@ const InstructorsSection: React.FC<InstructorsProps> = ({ data, id }) => {
   if (!instructors || instructors.length === 0) return null;
 
   return (
-    <section id={id} className="pt-8">
+    <section id={id} className="lg:pt-8 pt-1">
       <div className="mb-7 xs:bg-[#EEF2F4] xs:pt-2">
-        <h2 className="mb-4 text-text-primary text-xl font-semibold md:text-2xl">{data.name}</h2>
-
+        <h2 className="sm:mb-4 mb-0 text-text-primary text-xl font-semibold md:text-2xl">{data.name}</h2>
         <div className="flex items-center md:rounded-md md:border md:p-5 border-solid border-gray-300 box-border">
           {instructors.map((instructor) => (
             <div
               key={instructor.slug}
-              className="flex flex-col sm:flex-row items-center justify-center gap-6"
+              className="flex flex-row items-center justify-center gap-5 px-4"
             >
               <div className="flex">
                 <Image
@@ -32,7 +31,7 @@ const InstructorsSection: React.FC<InstructorsProps> = ({ data, id }) => {
                 />
               </div>
               <div className='flex-1 ml-4 pt-6'>
-                <h3 className="text-lg font-normal text-text-primary hover:text-brand-primary flex items-center gap-2 font-sans cursor-pointer">
+                <h3 className="text-lg font-normal text-brand-dark hover:text-brand-primary flex items-center gap-2 font-sans cursor-pointer">
                   {instructor.name}
                   <span className="text-brand-primary text-sm">{'>'}</span>
                 </h3>

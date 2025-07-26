@@ -14,7 +14,7 @@ const FeatureExplanationsSection: React.FC<FeatureExplanationsProps> = ({ data, 
   if (!explanations || explanations.length === 0) return null;
 
   return (
-    <section id={id} className="pt-8">
+    <section id={id} className="">
       <div className="container mx-auto">
         <h2 className="text-2xl font-semibold mb-4 text-brand-secondary">{data.name}</h2>
         <div className="bg-white rounded-lg border divide-y divide-gray-200 px-5">

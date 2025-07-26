@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
-import Header from "../components/sections/Header";
+import Header from "../components/sections/Header/Header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const notoSansBengali = Noto_Sans_Bengali({ subsets: ["bengali"], weight: ["400", "500", "700"], variable: "--font-noto-sans-bengali" });

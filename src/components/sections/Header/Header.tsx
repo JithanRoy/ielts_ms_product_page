@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import CustomButton from "../ui/CustomButton";
-import {HamburgerIcon, PhoneIcon} from "../ui/icons/commonIcon";
+import {HamburgerIcon, PhoneIcon} from "../../ui/icons/commonIcon";
+import CustomButton from "../../ui/CustomButton";
 
 
 const Header = () => {
