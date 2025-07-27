@@ -11,7 +11,7 @@ interface PurchaseCardProps {
 
 const PurchaseCard: React.FC<PurchaseCardProps> = ({ media, checklist, ctaText }) => {
   return (
-    <div className="rounded-lg  border overflow-hidden">
+    <div id="main-purchase-card" className="rounded-lg  border overflow-hidden">
       <MediaPlayer media={media} />
       <PurchaseDetails checklist={checklist} ctaText={ctaText} />
     </div>

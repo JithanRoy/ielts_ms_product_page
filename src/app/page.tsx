@@ -5,6 +5,7 @@ import CourseContent from "../components/CourseContent";
 import CourseDetailsLink from "../components/sections/CourseDetailsLink";
 import MediaPlayer from "../components/sections/purchaseCard/MediaPlayer";
 import PurchaseDetails from "../components/sections/purchaseCard/PurchaseDetails";
+import FloatingPurchaseDetails from "../components/sections/purchaseCard/FloatingPurchaseDetails";
 
 export default async function Home() {
   const courseData = await getCourseData('bn');
@@ -19,7 +20,7 @@ export default async function Home() {
       </div>
 
       <section
-        style={{ backgroundImage: `url(https://cdn.10minuteschool.com/images/ui_%281%29_1716445506383.jpeg)` }}
+        style={{ backgroundImage: `url(https://cdn.10minuteschool.com/images/ui_%281%29_1716445506383.jpeg)`}}
         className="bg-cover bg-center md:min-h-[384px] relative"
       >
         <div className="absolute inset-0" />
@@ -55,6 +56,12 @@ export default async function Home() {
       <section className="container mx-auto px-4 sm:mt-8 mt-0">
         <CourseContent sections={sectionsWithContent} />
       </section>
+
+      <FloatingPurchaseDetails
+        checklist={courseData.checklist}
+        ctaText={courseData.cta_text.name}
+      />
+
     </main>
   );
 }
