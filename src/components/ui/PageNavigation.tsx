@@ -55,7 +55,7 @@ const PageNavigation: React.FC<PageNavigationProps> = ({ sections, activeSection
           <ChevronIcon className="rotate-180" />
         </button>
         <ul ref={scrollContainerRef} className="flex pt-1 -pb-[0.75] border-b overflow-x-auto scroll-smooth snap-x hide-scrollbar">
-          {sections.map((section:any) => (
+          {sections.map((section) => (
             <li key={section.type} className="snap-start">
               <button
                 onClick={() => onNavLinkClick(section.type)}
