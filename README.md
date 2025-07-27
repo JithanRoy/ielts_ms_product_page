@@ -1,4 +1,3 @@
-// filepath: /home/jithan/WebstormProjects/ielts_ms_product_page/README.md
 ## Build & Run Locally
 
 ```sh
